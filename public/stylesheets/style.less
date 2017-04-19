@@ -15,6 +15,7 @@ body {
 
 .header {
 	font-size: 24px;
+	font-weight: bold;
 	padding: 20px 0;
 }
 
@@ -57,32 +58,39 @@ body {
 	color: #fff;
 	font-size: 24px;
 
-	img {
-		display: none;
-	}
+	.content {
+		max-width: 1280px;
+		margin: 0 auto;
 
-	a {
-		padding: 8px 8px 8px 32px;
-		text-decoration: none;
-		font-size: 25px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-
-		&:hover, 
-		&:focus {
-			color: #f1f1f1;
+		img {
+			display: none;
 		}
-	}
 
-	#btn-close-nav {
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		color: #000;
-	}
+		#btn-close-nav {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			color: #000;
+		}
 
-	.nav {
+		.nav {
+			.navigator {
+				a {
+					color: #fff;
+
+					&:hover,
+					&:active {
+						outline: none;
+						text-decoration: none;
+						background-color: transparent;
+					}
+				}
+			}
+
+			.dot {
+				display: none;
+			}
+		}
 	}
 }
 
@@ -109,6 +117,10 @@ body {
 		background-image: url('../images/bc/prj.png');
 		background-repeat: no-repeat;
 
+		.desc-header {
+			color: #917a61;
+		}
+
 		.prj-type {
 			display: flex;
 			flex-direction: row;
@@ -120,6 +132,10 @@ body {
 
 			div {
 				cursor: pointer;
+			}
+
+			div.active {
+				color: #e65231;
 			}
 
 		}
@@ -154,6 +170,7 @@ body {
 					}
 
 					.price {
+						opacity: .5;
 					}
 				}
 			}
@@ -190,13 +207,16 @@ body {
 		background-repeat: no-repeat;
 	    border-bottom: 1px dashed #999;
 
+	    .desc-header {
+			color: #917a61;
+		}
+
 		.list {
 			padding: 30px 0;
 
 			.sv-item {
 				img {
 					width: 100%;
-					height: 320px;
 				}
 
 				.info {
@@ -214,7 +234,7 @@ body {
 					}
 
 					.content {
-
+						opacity: .5;
 					}
 				}
 			}
@@ -272,7 +292,7 @@ body {
 						}
 
 						.content {
-
+							color: #b76530;
 						}
 					}
 				}
@@ -280,7 +300,7 @@ body {
 		}
 	}
 
-	.web {
+	.news {
 		background-image: url('../images/bc/web.png');
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -324,6 +344,10 @@ body {
 		background-repeat: no-repeat;
 		background-size: cover;
 
+		.desc-header {
+			color: #917a61;
+		}
+
 		.list {
 			padding: 30px 0;
 
@@ -353,9 +377,10 @@ body {
 		background-position: center top;
 		background-size: cover;
 		color: #fff;
+		padding-bottom: 150px;
 
 		.ct-info {
-			max-width: 1280px;
+			max-width: 960px;
 			margin: 0 auto;
 			padding: 20px 0;
 
@@ -369,11 +394,12 @@ body {
 		}
 
 		.msg {
-			max-width: 1480px;
+			max-width: 1280px;
 			margin: 0 auto;
 
 			input, textarea {
 				margin-bottom: 10px;
+				border-radius: 0;
 			}
 
 			textarea {
@@ -392,6 +418,66 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+	.header {
+		font-size: 36px;
+	}
+
+	.desc-header {
+		font-size: 24px;
+	}
+
+	#btn-open-nav {
+		display: none;
+	}
+
+	.sidenav {
+		width: 100%;
+		height: 100px;
+		padding-top: 0;
+		position: fixed;
+
+		.content {
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			#btn-close-nav {
+				display: none;
+			}
+
+			img {
+				display: block;
+				height: 50%;
+				padding: 0 5%;
+			}
+
+			.nav {
+				float: right;
+				width: 100%;
+				padding: 0 1%;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 13px;
+
+				.navigator.active {
+					border-bottom: 1px dashed #fff;
+				}
+
+				.dot {
+					display: block;
+
+					i {
+						font-size: 5px;
+						line-height: 18px;
+					}
+				}
+			}
+		}
+	}
+
 	.main {
 		.projects {
 			background-position: center top;
@@ -426,7 +512,7 @@ body {
 			background-size: contain;
 		}
 
-		.web {
+		.news {
 			background-position: center top;
 			background-size: contain;
 			background-color: #382143;
@@ -456,6 +542,21 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+	.sidenav {
+		.content {
+			.nav {
+				padding: 0 5%;
+				font-size: 18px;
+
+				.dot {
+					i {
+						line-height: 26px;
+					}
+				}
+			}
+		}
+	}
+
 	.main {
 		.production {
 			.list {
@@ -475,7 +576,7 @@ body {
 
 		
 
-		.web {
+		.news {
 			.list {
 				.story:nth-child(4) {
 					display: block;
