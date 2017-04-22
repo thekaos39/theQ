@@ -35,6 +35,7 @@ body {
 .list {
 	max-width: 1920px;
 	margin: 0 auto;
+	padding: 30px 0;	
 }
 
 #btn-open-nav {
@@ -44,7 +45,7 @@ body {
 	left: 10px;
 }
 
-.sidenav {
+.menubar {
 	height: 100%;
 	width: 0;
 	position: fixed;
@@ -101,21 +102,60 @@ body {
 	}
 
 	.banner {
+		background-image: url('../images/bc/banner.png');
+		background-color: #112c3d;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 		height: 100vh;
 
-		iframe {
-			position: absolute;
+		.play-video {
+			width: 120px;
+			height: 120px;
+			cursor: pointer;
+			z-index: 1;
+		}
+
+		.video-area {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			height: 100%;
 			width: 100%;
+			height: 100%;
+			z-index: -1;
+			transition: .5s;
+
+			.close-video {
+				border: none;
+				background-color: transparent;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				display: none;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			iframe {
+				display: none;
+			}
+		}
+
+		.on-video-played {
+			z-index: 2;
+			background-color: rgba(255, 255, 255, .5);
 		}
 	}
 
 	.projects {
-		background-image: url('../images/bc/prj.png');
+		background-image: url('../images/bc/project.png');
 		background-repeat: no-repeat;
 
 		.desc-header {
@@ -142,6 +182,7 @@ body {
 		}
 
 		.list {
+			padding: 0;
 
 			.prj {
 				position: relative;
@@ -179,14 +220,12 @@ body {
 	}
 
 	.production {
-		background-image: url('../images/bc/prd.png');
+		background-image: url('../images/bc/production.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 		color: #fff;
 
 		.list {
-			padding: 30px 0;
-
 			.prd-item {
 				margin-bottom: 10px;
 
@@ -204,7 +243,7 @@ body {
 	}
 
 	.services {
-		background-image: url('../images/bc/sv.png');
+		background-image: url('../images/bc/service.png');
 		background-repeat: no-repeat;
 	    border-bottom: 1px dashed #999;
 
@@ -213,8 +252,6 @@ body {
 		}
 
 		.list {
-			padding: 30px 0;
-
 			.sv-item {
 				img {
 					width: 100%;
@@ -243,58 +280,38 @@ body {
 	}
 
 	.team {
-		background-image: url('../images/bc/t.png');
+		background-image: url('../images/bc/team.png');
 		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
 
-		.list {
-			padding: 30px 0;
-			position: relative;
-			overflow: hidden;
+		.slick-slider {
+			.slick-prev:before, .slick-next:before {
+				font-size: 24px;
+				color: #351b42;
+			}
 
-			.team-back, .team-next {
-				position: absolute;
-				top: 0;
-				z-index: 1;
-				color: #000;
-				height: 100%;
-				padding: 0 5px;
-				line-height: 100%;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				cursor: pointer;
-
-				&:hover {
-					background-color: rgba(153, 153, 153, .5);
-					color: #fff;
+			.member {
+				&:focus {
+					outline: none;
 				}
-			}
 
-			.team-next {
-				right: 0;
-			}
+				img {
+					width: 260px;
+					height: 260px;
+					margin: 0 auto;
+					border-radius: 50%;
+					margin-bottom: 10px;
+				}
 
-			.team-slider {
-				display: inline-flex;
-				transition: .5s;
-
-				.member {
-					padding: 0 30px;
-					img {
-						width: 260px;
-						height: 260px;
-						border-radius: 50%;
-						margin-bottom: 10px;
+				.info {
+					margin-top: 10px;
+					.head {
+						font-size: 15px;
 					}
 
-					.info {
-						.head {
-							font-size: 15px;
-						}
-
-						.content {
-							color: #b76530;
-						}
+					.content {
+						color: #b76530;
 					}
 				}
 			}
@@ -308,8 +325,6 @@ body {
 		color: #fff;
 
 		.list {
-			padding: 30px 0;
-
 			.story {
 				margin-bottom: 10px;
 
@@ -341,7 +356,7 @@ body {
 	}
 
 	.inspiration {
-		background-image: url('../images/bc/isprt.png');
+		background-image: url('../images/bc/inspiration.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 
@@ -350,8 +365,6 @@ body {
 		}
 
 		.list {
-			padding: 30px 0;
-
 			.inspiration-pic {
 				margin-bottom: 10px;
 
@@ -373,7 +386,7 @@ body {
 	}
 
 	.contact {
-		background-image: url('../images/bc/ct.png');
+		background-image: url('../images/bc/contact.png');
 		background-repeat: no-repeat;
 		background-position: center top;
 		background-size: cover;
@@ -431,11 +444,12 @@ body {
 		display: none;
 	}
 
-	.sidenav {
+	.menubar {
 		width: 100%;
 		height: 100px;
 		padding-top: 0;
 		position: fixed;
+		transition: .5s;
 
 		.content {
 			height: 100%;
@@ -451,17 +465,21 @@ body {
 				display: block;
 				height: 50%;
 				padding: 0 5%;
+				margin-right: auto;
 			}
 
 			.nav {
-				float: right;
-				width: 100%;
 				padding: 0 1%;
+				width: 100%;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
 				align-items: center;
 				font-size: 13px;
+
+				.navigator a {
+					padding: 0;
+				}
 
 				.navigator.active {
 					border-bottom: 1px dashed #fff;
@@ -480,6 +498,13 @@ body {
 	}
 
 	.main {
+		.banner {
+			iframe {
+				width: 560px;
+				height: 315px;
+			}
+		}
+
 		.projects {
 			background-position: center top;
 			background-size: contain;
@@ -506,11 +531,6 @@ body {
 					display: none;
 				}
 			}
-		}
-
-		.team {
-			background-position: center top;
-			background-size: contain;
 		}
 
 		.news {
@@ -543,11 +563,16 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-	.sidenav {
+	.menubar {
 		.content {
 			.nav {
-				padding: 0 5%;
-				font-size: 18px;
+				width: auto;
+				padding: 0 3%;
+				font-size: 16px;
+
+				.navigator a {
+					padding: 10px 15px;
+				}
 
 				.dot {
 					i {
@@ -559,6 +584,10 @@ body {
 	}
 
 	.main {
+		.banner {
+			background-size: contain; 
+		}
+
 		.production {
 			.list {
 				.prd-item:nth-child(3) {
