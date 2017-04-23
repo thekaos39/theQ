@@ -187,6 +187,8 @@ body {
 			.prj {
 				position: relative;
 				margin-bottom: 10px;
+				transform: scale(0);
+				transition: all 350ms ease;
 
 				img {
 					width: 100%;
@@ -216,6 +218,10 @@ body {
 					}
 				}
 			}
+
+			.scale-ann {
+				transform: scale(1);
+			}
 		}
 	}
 
@@ -242,12 +248,17 @@ body {
 		}
 	}
 
+	.live {
+		height: 100vh;
+		background-color: #000;
+	}
+
 	.services {
 		background-image: url('../images/bc/service.png');
 		background-repeat: no-repeat;
-	    border-bottom: 1px dashed #999;
+		border-bottom: 1px dashed #999;
 
-	    .desc-header {
+		.desc-header {
 			color: #917a61;
 		}
 

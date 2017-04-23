@@ -8,8 +8,8 @@ $(document).ready(function() {
 	});
 
 	// navigator
-	$(".navigator a").on('click', function(event) {
-		if (this.hash !== "") {
+	$('.navigator a').on('click', function(event) {
+		if (this.hash !== '') {
 			event.preventDefault();
 			var hash = this.hash;
 			$('html, body').animate({
@@ -67,4 +67,16 @@ $(document).ready(function() {
 		$('.intro-video, .close-video').css('display', 'none');
 		$('.intro-video').prop('src', videoSrc + '&autoplay=0');
 	})
+
+	// porfolio filter
+	var selectedClass = '';
+	$('.fil-cat').click(function() {
+		selectedClass = $(this).attr('data-rel');
+		$('#portfolio').fadeTo(100, .1);
+		$('#portfolio div').not('.' + selectedClass).not('.info, .desc, .price').fadeOut().removeClass('scale-anm');
+		setTimeout(function() {
+			$('.' + selectedClass).fadeIn().addClass('scale-anm');
+			$('#portfolio').fadeTo(300, 1);
+		}, 300); 
+	});
 });
