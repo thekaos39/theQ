@@ -71,6 +71,8 @@ $(document).ready(function() {
 	// porfolio filter
 	var selectedClass = '';
 	$('.fil-cat').click(function() {
+		$('.fil-cat').css('color', '#000');
+		$(this).css('color', '#e65231');
 		selectedClass = $(this).attr('data-rel');
 		$('#portfolio').fadeTo(100, .1);
 		$('#portfolio div').not('.' + selectedClass).not('.info, .desc, .price').fadeOut().removeClass('scale-anm');
@@ -79,4 +81,10 @@ $(document).ready(function() {
 			$('#portfolio').fadeTo(300, 1);
 		}, 300); 
 	});
+
+	//show all production
+	$('.all-prd').click(function() {
+		$('.prd-item').css('display', 'block');
+		$(this).css('display', 'none');
+	})
 });

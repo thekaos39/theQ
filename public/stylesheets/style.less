@@ -220,12 +220,11 @@ body {
 
 			div {
 				cursor: pointer;
-			}
 
-			div.active {
-				color: #e65231;
+				&:first-child {
+					color: #e65231;
+				}
 			}
-
 		}
 
 		.list {
@@ -291,6 +290,10 @@ body {
 				i {
 					color: #000;
 					cursor: pointer;
+				}
+
+				&:nth-child(n + 3) {
+					display: none;
 				}
 			}
 		}
@@ -577,7 +580,7 @@ body {
 
 		.projects {
 			background-position: center top;
-			background-size: contain;
+			background-size: cover;
 		}
 
 		.production {
