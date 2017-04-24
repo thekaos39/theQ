@@ -57,15 +57,15 @@ $(document).ready(function() {
 	$('.play-video').click(function() {
 		$('body').css('overflow', 'hidden')
 		$('.video-area').addClass('on-video-played');
-		$('.intro-video, .close-video').css('display', 'block');
-		$('.intro-video').prop('src', videoSrc + '&autoplay=1');
+		$('.iframe-video, .close-video').css('display', 'block');
+		$('.iframe-video').prop('src', videoSrc + '&autoplay=1');
 	});
 
 	$('.close-video').click(function() {
 		$('body').css('overflow', 'auto')
 		$('.video-area').removeClass('on-video-played');
-		$('.intro-video, .close-video').css('display', 'none');
-		$('.intro-video').prop('src', videoSrc + '&autoplay=0');
+		$('.iframe-video, .close-video').css('display', 'none');
+		$('.iframe-video').prop('src', videoSrc + '&autoplay=0');
 	})
 
 	// porfolio filter
